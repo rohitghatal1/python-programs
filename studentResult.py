@@ -9,9 +9,9 @@ if marks >= 40:
     elif marks >= 80:
         print("Great job, that is awesome")
     elif marks >=60:
-        print("Well done, you are doing good")
+        print("Well done, you are DOING good")
     elif marks >=50:
-        print("Goood makrs but you can do better")
+        print("Goood makrs but you CAN do better")
     else:
         print("Poors marks you should work hard")
 else:
