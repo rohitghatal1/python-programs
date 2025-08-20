@@ -15,4 +15,5 @@ if marks >= 40:
     else:
         print("Poors marks you should work hard")
 else:
+    
     print(f"Sorry to inform you that you failed the exam, better luck next time")
