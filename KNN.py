@@ -1,3 +1,8 @@
+import numpy as np
+import pandas as pd
+from collections import Counter
+from sklearn.neighbors import KNeighborsClassifier
+
 data = [
   {"Weight": 260, "Height": 162, "Animal": "Horse"},
   {"Weight": 33, "Height": 90, "Animal": "Dog"},
@@ -20,3 +25,10 @@ data = [
   {"Weight": 28, "Height": 72, "Animal": "Dog"},
   {"Weight": 210, "Height": 170, "Animal": "Horse"}
 ]
+
+df = pd.DataFrame(data)
+
+df['Label'] = df['Animal'].map({'Dob': 0, 'Horse': 1})
+
+x = df[['Weight', 'Height']].values
+y = df[['Label']].values
