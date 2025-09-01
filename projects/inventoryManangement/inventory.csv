@@ -1,0 +1,9 @@
+Category,ProductID,ProductName,Quantity,Price
+Stationery,101,Notebook,50,120
+Stationery,102,Pen,200,10
+Electronics,103,Laptop,10,55000
+Electronics,104,Mouse,25,800
+Electronics,108,Headphones,18,2500
+Furniture,105,Chair,15,2500
+Furniture,106,Table,8,4000
+Kitchen,107,Water Bottle,60,300
