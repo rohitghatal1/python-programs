@@ -39,3 +39,23 @@ def display_inventory(inventory):
             print(f" -{item["ProductName"]} (ID: {item["ProductID"]})" f"Qty: {item['Quantity']} Price: Rs.{item['Price']}")
     
     print()
+
+def add_product(inventory, category, pid, name, qty, price):
+    if category not in inventory:
+        inventory[category] = []
+    inventory[category].append({
+        "ProductID": pid,
+        "ProductName": name,
+        "Quantity": qty,
+        "Price": price
+    })
+    return inventory
+
+def updated_quantity(inventory, category, pid, qty_change):
+    if category in inventory:
+        for item in inventory[category]:
+            if item["ProductID"] == pid:
+                item["Quantity"] = qty_change
+                return inventory
+    print("Product not found")
+    return inventory
