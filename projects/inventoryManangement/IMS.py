@@ -59,3 +59,16 @@ def updated_quantity(inventory, category, pid, qty_change):
                 return inventory
     print("Product not found")
     return inventory
+
+def delete_product(inventory, category, pid):
+    if category in inventory:
+        inventory[category] = [item for item in inventory[category] if item["ProductId"] != pid]
+    return inventory
+
+def search_product(inventory, keyword):
+    results = []
+    for cat, items in inventory.items():
+        for item in items:
+            if keyword.lower() in item["ProductName"].lower():
+                results.append((cat, item))
+    return results
