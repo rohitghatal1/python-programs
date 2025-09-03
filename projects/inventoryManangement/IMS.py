@@ -72,3 +72,18 @@ def search_product(inventory, keyword):
             if keyword.lower() in item["ProductName"].lower():
                 results.append((cat, item))
     return results
+
+def low_stock_report(inventory, threshold = 10):
+    report = []
+    for cat, items in inventory.items():
+        for item in items:
+            if item["Quantity"] <= threshold:
+                report.append((cat, item))
+    return report
+
+def inventory_value(inventory):
+    total = 0
+    for cat, items in inventory.items():
+        for item in items:
+            total += item["Quantity"] * item["Price"]
+    return total
