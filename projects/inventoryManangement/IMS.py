@@ -87,3 +87,32 @@ def inventory_value(inventory):
         for item in items:
             total += item["Quantity"] * item["Price"]
     return total
+
+if __name__ == "_main_":
+    inventory = load_inventory()
+
+    while True:
+        print("\n Inventory Management System")
+        print("1. Dispaly Inventory")
+        print("2. Add Product")
+        print("3. Update Quantity")
+        print("4. Delete Product")
+        print("5. Search Product")
+        print("6. Low Stock Report")
+        print("7. Inventory Value Report")
+        print("8. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            display_inventory(inventory)
+        
+        elif choice == "2":
+            cat = input("Enter Category: ")
+            pid = int(input("Enter Product ID: "))
+            name = input("Enter Produc Name: ")
+            qty = int(input("Enter Quantity: "))
+            price = float(input("Enter price: "))
+            inventory = add_product(inventory, cat, pid, name, qty, price)
+            save_inventory(inventory)
+        
