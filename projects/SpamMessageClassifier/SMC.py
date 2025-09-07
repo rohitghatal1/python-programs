@@ -26,6 +26,18 @@ vectorizer = TfidfVectorizer(stop_words="english")
 X_vec = vectorizer.fit_transform(x)
 
 
-x_train, x_text, y_train, y_test = train_test_split(X_vec, y, test_size=0.3, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(X_vec, y, test_size=0.3, random_state=42)
 
+model = LogisticRegression()
+model.fit(x_train, y_train)
+
+y_pred = model.predict(x_test)
+
+print("Accuracy: ", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+
+
+new_message = ["Claim yor free prize now!!!"]
+new_vec = vectorizer.transform(new_message)
+print("Prediction for new message:", "Span" if model.predict(new_vec)[0] == 1 else "Ham")
 
