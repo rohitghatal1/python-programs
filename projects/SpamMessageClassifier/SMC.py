@@ -18,3 +18,14 @@ data = {
 
 df = pd.DataFrame(data)
 
+
+x = df["message"]
+y = df["label"].map({"ham":0, "span": 1})
+
+vectorizer = TfidfVectorizer(stop_words="english")
+X_vec = vectorizer.fit_transform(x)
+
+
+x_train, x_text, y_train, y_test = train_test_split(X_vec, y, test_size=0.3, random_state=42)
+
+
