@@ -15,10 +15,9 @@ model = models.Sequential([
 
     layers.Flatten(),
     layers.Dense(64, activation='relu'),
-    layers.Dense(10, activation='softmax')  # 10 classes (digits 0–9)
+    layers.Dense(10, activation='softmax')
 ])
 
-# 3. Compile model
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
@@ -26,6 +25,5 @@ model.compile(optimizer='adam',
 
 model.fit(x_train, y_train, epochs=5, batch_size=64, validation_split=0.1)
 
-# 5. Evaluate model
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
 print(f"Test accuracy: {test_acc:.4f}")
